@@ -4,12 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="UserService" class="com.zhouhao.spring6.service.UserService">
-        <property name="myUserDao" ref="UserDao"></property>
+        <property name="userDao" ref="UserDao"></property>
+        <property name="vipDao" ref="VipDao"></property>
+
 <!--        想让Spring调用对应的set方法，需要配置property标签-->
 <!--        name="set方法的方法名，去掉set，把首字母小写"-->
 <!--        ref翻译为引用，ref后面指定的是要注入bean的id-->
     </bean>
 
     <bean id="UserDao" class="com.zhouhao.spring6.dao.UserDao"></bean>
+    <bean id="VipDao" class="com.zhouhao.spring6.dao.VipDao"></bean>
+
 
 </beans>

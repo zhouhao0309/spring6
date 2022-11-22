@@ -17,6 +17,7 @@ public class CustomService {
         this.userDao = userDao;
         this.vipDao = vipDao;
     }
+
     public void save(){
         userDao.insert();
         vipDao.insetr();

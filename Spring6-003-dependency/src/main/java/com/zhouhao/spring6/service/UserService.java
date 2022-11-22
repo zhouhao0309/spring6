@@ -16,13 +16,18 @@ public class UserService {
     private VipDao vipDao;
     //spring容器的set注入
     //方法可以自己命名，但是首字母要是set
-    public void setMyUserDao(UserDao dao){
-        this.userDao=dao;
+
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
-
+    public void setVipDao(VipDao vipDao) {
+        this.vipDao = vipDao;
+    }
 
     public void saveUser(){
         userDao.insert();
+        vipDao.insetr();
     }
 }

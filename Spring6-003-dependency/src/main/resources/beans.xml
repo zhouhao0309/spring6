@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDao" class="com.zhouhao.spring6.dao.UserDao"></bean>
+    <bean id="vipDao" class="com.zhouhao.spring6.dao.VipDao"></bean>
+    <bean id="csbean" class="com.zhouhao.spring6.service.CustomService">
+<!--        构造注入-->
+<!--        指定构造方法的第一个参数下标为0-->
+<!--        根据构造方法参数的下标注入-->
+        <constructor-arg index="0" ref="userDao"></constructor-arg>
+        <constructor-arg index="1" ref="vipDao"></constructor-arg>
+    </bean>
+
+<!--    构造注入的第二种形式（根据构造方法的参数的名字注入）-->
+    <bean id="csbean2" class="com.zhouhao.spring6.service.CustomService">
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+        <constructor-arg name="vipDao" ref="vipDao"></constructor-arg>
+    </bean>
+
+<!--    构造注入的第三种方式（）-->
+<!--    容器会自动根据注入-->
+    <bean id="csbean3" class="com.zhouhao.spring6.service.CustomService">
+        <constructor-arg ref="vipDao"></constructor-arg>
+        <constructor-arg ref="userDao"></constructor-arg>
+    </bean>
+</beans>
