@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--根据set进行注入-->
+    <bean id="orderServicebean" class="com.zhouhao.spring6.service.OrderService">
+        <property name="orderDao" ref="orderDaobean"></property>
+    </bean>
+
+    <bean id="orderDaobean" class="com.zhouhao.spring6.dao.OrderDao"></bean>
+
+
+
+
+<!--    根据XML的名字自动装配进行注入-->
+    <bean id="orderServicebean1" class="com.zhouhao.spring6.service.OrderService" autowire="byName"></bean>
+
+    <bean id="orderDao" class="com.zhouhao.spring6.dao.OrderDao"></bean>
+<!--    id="定义方法的set后面的名称的首字母小写"-->
+
+
+<!--    根据XML的类型进行自动注入-->
+<!--    本质也是基于set方法的-->
+<!--    根据类型进行自动装配的时候，某种类型的实例只能有一个-->
+    <bean class="com.zhouhao.spring6.dao.UserDao"></bean>
+    <bean class="com.zhouhao.spring6.dao.VipDao"></bean>
+    <bean id="customServicebean" class="com.zhouhao.spring6.service.CustomService" autowire="byType"></bean>
+
+</beans>

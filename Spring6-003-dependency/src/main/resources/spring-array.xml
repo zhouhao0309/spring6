@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="w1" class="com.zhouhao.spring6.bean.Women">
+        <property name="name" value="小亮"></property>
+    </bean>
+
+    <bean id="w2" class="com.zhouhao.spring6.bean.Women">
+        <property name="name" value="小红"></property>
+    </bean>
+
+    <bean id="w3" class="com.zhouhao.spring6.bean.Women">
+        <property name="name" value="小美"></property>
+    </bean>
+
+
+    <bean id="zhouhaobean" class="com.zhouhao.spring6.bean.ZhouHao">
+        <property name="aihaos">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="womens">
+            <array>
+                <ref bean="w1"></ref>
+                <ref bean="w2"></ref>
+                <ref bean="w3"></ref>
+            </array>
+        </property>
+    </bean>
+
+</beans>

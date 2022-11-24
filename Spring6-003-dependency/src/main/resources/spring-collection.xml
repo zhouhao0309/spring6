@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personbean" class="com.zhouhao.spring6.bean.Person">
+        <property name="names">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>王五</value>
+                <value>钱六</value>
+            </list>
+        </property>
+
+        <property name="addrs">
+            <set>
+                <value>周浩</value>
+                <value>周瑾</value>
+                <value>周静</value>
+                <value>周军</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="1" value="111"></entry>
+                <entry key="2" value="222"></entry>
+                <entry key="3" value="333"></entry>
+                <entry key="4" value="444"></entry>
+<!--                <entry key-ref="" value-ref=""></entry>-->
+<!--                如果键值对key和value不是简单数据类型，就要使用key-ref和value-ref-->
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="driver">www.baidu.com</prop>
+                <prop key="name">zhouhao10086</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

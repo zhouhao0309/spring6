@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="OrderDao" class="com.zhouhao.spring6.dao.OrderDao"></bean>
+
+    <bean id="OrderService" class="com.zhouhao.spring6.service.OrderService">
+        <property name="orderDao" ref="OrderDao">
+<!--            外部Bean的特点：bean定义到外面，在property标签中使用ref属性进行注入。通常这种方式是常用。-->
+        </property>
+    </bean>
+
+    <bean id="OrderService2" class="com.zhouhao.spring6.service.OrderService">
+        <property name="orderDao">
+<!--            内部Bean的方式：在bean标签中嵌套bean标签。-->
+            <bean class="com.zhouhao.spring6.dao.OrderDao"></bean>
+        </property>
+    </bean>
+
+<!--注入简单类型-->
+<!--    不能使用ref，必须要使用value赋值-->
+    <bean id="userbean" class="com.zhouhao.spring6.bean.User">
+        <property name="age" value="18"></property>
+        <property name="password" value="5201314zh"></property>
+        <property name="username" value="周浩"></property>
+    </bean>
+
+<!--    <bean id="datebean" class="com.zhouhao.spring6.bean.SimpleValueType">-->
+<!--&lt;!&ndash;        2003-03-09无法转换为date类型，程序报错&ndash;&gt;-->
+<!--        <property name="date" value="new date()"></property>-->
+<!--    </bean>-->
+
+
+    <bean id="Mysourcebean" class="com.zhouhao.spring6.jdbc.Mysource">
+        <property name="driver" value="556"></property>
+        <property name="url" value="awfawf"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="5201314zh"></property>
+    </bean>
+
+    <bean id="catbean" class="com.zhouhao.spring6.bean.Cat">
+<!--        注释掉<property name="name" value=""></property> 输出结果为null  当注入空字符串的时候显示“”-->
+<!--        注入空字符串第一种方式-->
+        <property name="name" value=""></property>
+<!--        注入空字符串第二种方式-->
+<!--        <property name="name">-->
+<!--            <value></value>-->
+<!--        </property>-->
+        <property name="age" value="2028"></property>
+    </bean>
+
+    <bean id="mathbean" class="com.zhouhao.spring6.bean.MathBean">
+        <property name="result" value="2>5"></property>
+    </bean>
+</beans>
