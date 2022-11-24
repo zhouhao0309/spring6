@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="zhouhao" class="com.zhouhao.spring6.bean.SpringBean" scope="singleton"></bean>
+<!--    当将bean的scope设置为prototype
+        bean是多例的
+        spring上下文初始化的时候，不会初始化prototype的bean
+        prototype翻译为：原型
+        默认值得为singleton：单例-->
+</beans>
