@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentbean" class="com.zhouhao.spring6.bean.Student">
+        <property name="date" value="Mon Nov 28 17:58:04 CST 2022"></property>
+    </bean>
+
+
+<!--    spring提供的实例化对象，第一种再spring配置文件当中直接配置类全路径，spring容器会自动调用该类的无参数构造方法来实例化bean-->
+    <bean id="springBeantest" class="com.zhouhao.spring6.bean.SpringBean"></bean>
+
+<!--    spirng提供的实例化对象：第二种：需要在配置文件中告诉spring框架，调用哪个类的哪个方法获取bean-->
+    <bean id="starbean" class="com.zhouhao.spring6.bean.StarFactory" factory-method="get"></bean>
+
+<!--    Spring通过factory-bean实例化-->
+<!--    告诉spring调用哪个对象的哪个方法-->
+    <bean id="gunFactorybean" class="com.zhouhao.spring6.bean.GunFactory"></bean>
+    <bean id="gunbean" factory-bean="gunFactorybean" factory-method="get"></bean>
+
+<!--    spring的第四中实例方式通过FactoryBean接口实例化-->
+<!--    这种方式就是第三种方式的简化-->
+<!--    不需要手动 factory-bean和factory-method-->
+    <bean id="personbean" class="com.zhouhao.spring6.bean.PersonFactoryBean"></bean>
+</beans>
