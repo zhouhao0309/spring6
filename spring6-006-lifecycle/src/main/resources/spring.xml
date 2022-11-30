@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="uu" class="com.zhouhao.spring6.bean.User" init-method="initBean" destroy-method="destoryBean" scope="singleton">
+        <property name="name" value="周浩"></property>
+    </bean>
+<!--    配置bean后处理器
+        这个bean后处理器将作用与整个配置文件大概在-->
+    <bean class="com.zhouhao.spring6.bean.beanPostProcessor"></bean>
+
+<!--    <bean id="vip" class="com.zhouhao.spring6.bean.Vip"></bean>-->
+
+</beans>
