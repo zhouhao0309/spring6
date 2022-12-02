@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+<!--    这个配置文件是使用者使用的-->
+
+    <bean id="User" class="com.zhouhao.spring.bean.User">
+        <property name="name" value="周浩"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="UserService" class="com.zhouhao.spring.bean.UserService">
+        <property name="userDao" ref="UserDaoBean"/>
+    </bean>
+
+    <bean id="UserDaoBean" class="com.zhouhao.spring.bean.UserDao"/>
+</beans>
