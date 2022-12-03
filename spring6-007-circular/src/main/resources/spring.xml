@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    singleton下的循环依赖没有任何问题
+        singleton表示的在整个spring当中是单例的，独一无二的-->
+
+<!--    singleton+setter模式下，为什么循环依赖不会出现问题
+        主要原因是，在这种模式下的spring对bean的管理主要分为清晰的两个阶段
+        第一个阶段：子啊spring容器加载的时候，实例化bean，只要任意一个bean加载后，马上进行”曝光“【不是属性赋值曝光】
+        第二阶段：bean曝光之后，在进行属性的赋值-->
+<!--    只有在scope是singleton的情况下，bean才会进行曝光-->
+    <bean id="husbandBean" class="com.zhouhao.spring6.bean.Husband" scope="singleton">
+        <property name="name" value="周浩"></property>
+        <property name="wife" ref="wifeBean"></property>
+    </bean>
+    <bean id="wifeBean" class="com.zhouhao.spring6.bean.Wife" scope="singleton">
+        <property name="name" value="万芬芬"></property>
+        <property name="husband" ref="husbandBean"></property>
+    </bean>
+</beans>
